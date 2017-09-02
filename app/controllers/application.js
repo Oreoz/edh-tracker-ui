@@ -1,12 +1,25 @@
-import Ember from 'ember';
+import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 
-export default Ember.Controller.extend({
-  store: Ember.inject.service(),
+export default Controller.extend({
+  store: service(),
+  session: service(),
+
+  beforeModel() {
+    return this.get('session').fetch().catch(() => { });
+  },
 
   actions: {
-    createMatch() {
-      let match = this.get('store').createRecord('match', { name: 'Bogus Match' });
-      match.save();
+    signIn(provider) {
+      this.get('session').open('firebase', { provider: provider }).then(() => {
+
+      }, () => {
+
+      });
+    },
+
+    signOut() {
+      this.get('session').close();
     }
   }
 });

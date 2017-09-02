@@ -1,5 +1,18 @@
-<h1>EDH Tracker</h1>
+{{#if session.isAuthenticated}}
+  Logged in as {{session.currentUser.displayName}}
+  <button {{action "signOut"}}>Sign out</button>
+{{else}}
+  <button {{action "signIn" "google"}}>Sign in with Google</button>
+{{/if}}
 
-<button type="button" name="button" {{action 'createMatch'}}>Create Match</button>
+{{#link-to 'index'}}
+  Index
+{{/link-to}}
+
+{{#link-to 'matches.list'}}
+  Match List
+{{/link-to}}
+
+<h1>EDH Tracker</h1>
 
 {{outlet}}

@@ -7,6 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('matches', function() {
+    this.route('show', { path: '/:match_id' });
+    this.route('list', { path: '/' });
+  });
 });
 
 export default Router;

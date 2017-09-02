@@ -25,6 +25,10 @@ module.exports = function(environment) {
       storageBucket: process.env.FIREBASE_STORAGE_BUCKET
     },
 
+    torii: {
+      sessionServiceName: 'session'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -32,7 +36,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-
+    //
   }
 
   if (environment === 'test') {
@@ -47,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    //
   }
 
   return ENV;

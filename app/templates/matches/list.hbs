@@ -1,0 +1,9 @@
+<button disabled={{unauthenticated}} {{action 'createMatch'}}>Create Match</button>
+
+<ul>
+  {{#each matches as |match|}}
+    {{#link-to 'matches.show' match.id}}
+      <li>{{match.name}}</li>
+    {{/link-to}}
+  {{/each}}
+</ul>
