@@ -22,6 +22,6 @@ deploy:
   provider: heroku
   api_key:
     secure: lQylwt38ba8+dnhrxXJxIVa8CzWbORPaRU7n/94cDdZfSDKgtRX7/Agwld7y8xFxw20drnty4GURGJogKM6yjLw3x7smj/wYk4qx1R1yCJCvdOzRWZd3A4/5HYBsahDpKJ7IteHbc7uh/HzWaqaUTs/g0VjvG6+yM1VnEoqD0X0B6geJTZ8+h3zcbExqxLNGworErywXKYXSJy3g+6e0YX24+wGo1It1ebgjsWUk+Bmk941R3jaHu36CLvH9pFMNS77fWUpNPRszzhd6I25M3pNrItG+A+B17BCJn3EZYEBAXIIld+o1TcCtjwp6t9nCD570FqlWWsuEQnwgVYwkLXEcC/tX4iMyrjh2bCOcY34M4p3403nwE0csNaAffbhk7Gt8mdups+M7cW43seDVkMsSX09lNSgrE3vAqWy+Mi5rKguHa2Wr2akDdDh2cNz3sAf4C/hJNmTQNs+i68QtFsCvrInazMklYF05jvs60cidimRuGvfyHpps9Ifd0uejrpY6KfhI/2ZsiV1L8LedTvqD5X5XLnuTH+lAXwx07pffCEqHIpYWK1vfux+KoHNXQED8Ses9GHDZdJVDtvcLPv/hkt+mCaBC/CN8KjBo03s7Y/1bqjM3Y8y1qKvBgX9GSaBAZ8RBzMlXy6ESq0LjZXy8U3Gc442NN1TRJG6RxOg=
-  app: edh-tracker-ui
+  app: edh-tracker
   on:
     branch: master
