@@ -28,6 +28,11 @@ export default Controller.extend({
     modifyPlayerLife(player, increment) {
       player.incrementProperty('life', increment);
       run.debounce(this, this._persistPlayerLifeTotals, 1000);
+    },
+
+    resetGame() {
+      this.get('match.players').map(p => p.set('life', 40));
+      this.get('match').save();
     }
   }
 });

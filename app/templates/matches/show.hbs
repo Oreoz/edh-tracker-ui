@@ -27,3 +27,11 @@
     {{/if}}
   </div>
 {{/each}}
+
+{{#if (eq uid match.creator)}}
+  <div class="admin-panel text-center">
+    <button class="btn btn-outline-warning" {{action 'resetGame'}}>
+      <i class="fa fa-refresh" aria-hidden="true"></i> Reset Game
+    </button>
+  </div>
+{{/if}}
