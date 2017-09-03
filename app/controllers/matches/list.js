@@ -2,5 +2,5 @@ import Controller from "@ember/controller";
 import { computed } from "@ember/object";
 
 export default Controller.extend({
-  matches: computed.alias('model'),
+  matches: computed.alias('model')
 });

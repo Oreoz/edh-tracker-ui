@@ -1,21 +1,30 @@
+{{!--
 <div class="match-heading row">
   <div class="pull-right">
     <button class="btn btn-outline-primary" {{action 'addPlayer'}}>Add Player</button>
   </div>
 </div>
+--}}
 
 {{#each match.players as |player|}}
   <div class="row my-2">
-    <div class="col-2 text-center">
-      <button class="btn btn-outline-danger" {{action 'modifyLife' player -1}}>-</button>
+    {{#if (eq uid player.uid)}}
+      <div class="col-3 text-center p-0">
+        <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -1}}>1</button>
+        <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -5}}>5</button>
+      </div>
+    {{/if}}
+
+    <div class="col-6 text-center {{unless (eq uid player.uid) 'offset-3'}}">
+      {{player.commander}} :: {{player.life}}
     </div>
 
-    <div class="col-8 text-center">
-      {{player.life}}
-    </div>
+    {{#if (eq uid player.uid)}}
+      <div class="col-3 text-center p-0">
+        <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 1}}>1</button>
+        <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 5}}>5</button>
+      </div>
+    {{/if}}
 
-    <div class="col-2 text-center">
-      <button class="btn btn-outline-success" {{action 'modifyLife' player 1}}>+</button>
-    </div>
   </div>
 {{/each}}

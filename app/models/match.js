@@ -10,7 +10,11 @@ export default Model.extend({
 
   players: hasMany('player'),
 
-  joinable: computed('players.[]', function () {
-    return this.get('players.length') < this.get('size');
+  isFull: computed('players.[]', function () {
+    return this.get('players.length') >= this.get('size');
+  }),
+
+  displaySize: computed('players.[]', function () {
+    return `${this.get('players.length')} / ${this.get('size')}`;
   })
 });
