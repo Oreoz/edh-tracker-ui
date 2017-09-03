@@ -17,7 +17,6 @@ export default Controller.extend({
         uid: this.get('session.currentUser.uid')
       });
 
-      await player.save();
       this.get('match.players').pushObject(player);
 
       await this.get('match').save();

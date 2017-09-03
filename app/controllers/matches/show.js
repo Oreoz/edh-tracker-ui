@@ -11,8 +11,6 @@ export default Controller.extend({
   actions: {
     async addPlayer() {
       let player = this.get('store').createRecord('player');
-
-      await player.save();
       this.get('match.players').pushObject(player);
 
       await this.get('match').save();
