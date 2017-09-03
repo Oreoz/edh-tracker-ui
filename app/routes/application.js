@@ -8,6 +8,9 @@ export default Route.extend({
     await this.get('session').fetch();
 
     let uid = this.get('session.currentUser.uid');
-    await this.get('store').query('profile', { uid: uid });
+    
+    if (uid) {
+      await this.get('store').query('profile', { uid: uid });
+    }
   }
 });
