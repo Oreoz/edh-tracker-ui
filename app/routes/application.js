@@ -6,9 +6,5 @@ export default Route.extend({
 
   async beforeModel() {
     await this.get('session').fetch();
-
-    if (!this.get('session.isAuthenticated')) {
-      this.transitionTo('index');
-    }
   }
 });

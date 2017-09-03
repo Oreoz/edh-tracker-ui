@@ -10,7 +10,13 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         {{#link-to 'matches.list' class="nav-link"}}
-          Matches
+          Active Matches
+        {{/link-to}}
+      </li>
+
+      <li class="nav-item">
+        {{#link-to 'matches.new' class="nav-link"}}
+          New Match
         {{/link-to}}
       </li>
     </ul>

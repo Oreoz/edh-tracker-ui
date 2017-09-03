@@ -3,24 +3,26 @@ import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 
 export default Controller.extend({
-  store: service(),
   session: service(),
 
   match: computed.alias('model'),
 
+  sizes: computed(function () {
+    return [ 1, 2, 3, 4, 5, 6 ];
+  }),
+
   actions: {
-    async addPlayer() {
-      let player = this.get('store').createRecord('player');
+    async createMatch() {
+      let player = this.get('store').createRecord('player', {
+        uid: this.get('session.currentUser.uid')
+      });
 
       await player.save();
       this.get('match.players').pushObject(player);
 
       await this.get('match').save();
-    },
 
-    modifyLife(player, increment) {
-      player.incrementProperty('life', increment);
-      player.save();
+      this.transitionToRoute('matches.show', this.get('match.id'));
     }
   }
 });

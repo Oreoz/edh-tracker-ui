@@ -1,6 +1,5 @@
-.container {
-  padding-top: 20px !important;
-}
+@import 'ember-power-select/themes/bootstrap';
+@import 'ember-power-select';
 
 body {
   font-family: 'Roboto', sans-serif !important;
