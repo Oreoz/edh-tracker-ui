@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('list', { path: '/' });
     this.route('new');
   });
+  this.route('profile');
 });
 
 export default Router;

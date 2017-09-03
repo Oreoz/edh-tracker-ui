@@ -4,6 +4,7 @@ import { inject as service } from "@ember/service";
 
 export default Controller.extend({
   session: service(),
+  playerService: service('player'),
 
   match: computed.alias('model'),
 
@@ -13,10 +14,7 @@ export default Controller.extend({
 
   actions: {
     async createMatch() {
-      let player = this.get('store').createRecord('player', {
-        uid: this.get('session.currentUser.uid')
-      });
-
+      let player = this.get('playerService').createPlayer();
       this.get('match.players').pushObject(player);
 
       await this.get('match').save();

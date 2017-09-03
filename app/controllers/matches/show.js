@@ -6,6 +6,7 @@ import { run } from "@ember/runloop";
 export default Controller.extend({
   store: service(),
   session: service(),
+  playerService: service('player'),
 
   match: computed.alias('model'),
   uid: computed.alias('session.currentUser.uid'),
@@ -18,7 +19,7 @@ export default Controller.extend({
 
   actions: {
     async addPlayer() {
-      let player = this.get('store').createRecord('player');
+      let player = this.get('playerService').createPlayer();
       this.get('match.players').pushObject(player);
 
       await this.get('match').save();

@@ -1,0 +1,12 @@
+<div class="header-container pt-3">
+  <h3>Profile</h3>
+</div>
+
+<form>
+  <div class="form-group">
+    <label>Default Commander</label>
+    {{input id="match-name" type="text" class="form-control" value=profile.defaultCommander}}
+  </div>
+
+  <button type="submit" class="btn btn-primary" {{action 'save'}}>Save</button>
+</form>

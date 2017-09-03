@@ -6,6 +6,7 @@ export default Component.extend({
   session: service(),
   router: service(),
   store: service(),
+  playerService: service('player'),
 
   match: null,
 
@@ -21,10 +22,7 @@ export default Component.extend({
 
   actions: {
     async joinMatch() {
-      let player = this.get('store').createRecord('player', {
-        uid: this.get('session.currentUser.uid')
-      });
-
+      let player = this.get('playerService').createPlayer();
       this.get('players').pushObject(player);
 
       await this.get('match').save();
