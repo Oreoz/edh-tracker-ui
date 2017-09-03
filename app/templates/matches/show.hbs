@@ -1,1 +1,21 @@
-<h1>{{model.name}}</h1>
+<div class="match-heading row">
+  <div class="pull-right">
+    <button class="btn btn-outline-primary" {{action 'addPlayer'}}>Add Player</button>
+  </div>
+</div>
+
+{{#each match.players as |player|}}
+  <div class="row my-2">
+    <div class="col-2 text-center">
+      <button class="btn btn-outline-danger" {{action 'modifyLife' player -1}}>-</button>
+    </div>
+
+    <div class="col-8 text-center">
+      {{player.life}}
+    </div>
+
+    <div class="col-2 text-center">
+      <button class="btn btn-outline-success" {{action 'modifyLife' player 1}}>+</button>
+    </div>
+  </div>
+{{/each}}

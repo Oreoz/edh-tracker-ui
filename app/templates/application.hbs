@@ -1,18 +1,35 @@
-{{#if session.isAuthenticated}}
-  Logged in as {{session.currentUser.displayName}}
-  <button {{action "signOut"}}>Sign out</button>
-{{else}}
-  <button {{action "signIn" "google"}}>Sign in with Google</button>
-{{/if}}
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-{{#link-to 'index'}}
-  Index
-{{/link-to}}
+  {{#link-to 'index' class="navbar-brand"}}EDH Tracker{{/link-to}}
 
-{{#link-to 'matches.list'}}
-  Match List
-{{/link-to}}
+  <div class="collapse navbar-collapse" id="navbar-content">
 
-<h1>EDH Tracker</h1>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        {{#link-to 'matches.list' class="nav-link"}}
+          Matches
+        {{/link-to}}
+      </li>
+    </ul>
 
-{{outlet}}
+    <form class="form-inline my-2 my-lg-0">
+      {{#if session.isAuthenticated}}
+        <button class="btn btn-outline-danger my-2 my-sm-0" {{action "signOut"}}>
+          <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out
+        </button>
+      {{else}}
+        <button class="btn btn-outline-success my-2 my-sm-0" {{action "signIn" "google"}}>
+          <i class="fa fa-google" aria-hidden="true"></i> Sign In
+        </button>
+      {{/if}}
+    </form>
+
+  </div>
+</nav>
+
+<div class="container">
+  {{outlet}}
+</div>

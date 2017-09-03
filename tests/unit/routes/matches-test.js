@@ -1,21 +1,16 @@
 import { moduleFor, test } from 'ember-qunit';
 import Service from "@ember/service";
 
-const sessionStub = Service.extend({
-  async fetch() {
-    return await '';
-  }
-});
+const sessionStub = Service.extend({ });
 
-moduleFor('controller:application', 'Unit | Controller | application', {
+moduleFor('route:matches', 'Unit | Route | matches', {
   beforeEach() {
     this.register('service:session', sessionStub);
     this.inject.service('session', { as: 'session' });
   }
 });
 
-// Replace this with your real tests.
 test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+  let route = this.subject();
+  assert.ok(route);
 });

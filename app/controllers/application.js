@@ -5,8 +5,14 @@ export default Controller.extend({
   store: service(),
   session: service(),
 
-  beforeModel() {
-    return this.get('session').fetch().catch(() => { });
+  async init() {
+    this._super(...arguments);
+
+    await this.get('session').fetch();
+
+    if (this.get('session.isAuthenticated')) {
+      this.transitionToRoute('matches');
+    }
   },
 
   actions: {
