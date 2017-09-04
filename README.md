@@ -1,50 +1,37 @@
-# edh-tracker
+# EDH Tracker
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
-
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd edh-tracker`
-* `npm install`
+In order to run the application, you'll need [Git](https://git-scm.com/),
+[Node.js](https://nodejs.org/) (with NPM), [Ember CLI](https://ember-cli.com/) and
+[Google Chrome](https://google.com/chrome/) properly installed on your computer.
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+First things first, clone the project and install the dependencies:
 
-### Code Generators
+* `git clone https://github.com/Oreoz/edh-tracker-ui.git`
+** NPM: `cd edh-tracker && npm install`
+** Yarn: `cd edh-tracker && yarn`
 
-Make use of the many generators for code, try `ember help generate` for more details
+In order to run the application you'll need to create a
+[Firebase](https://firebase.google.com/) project in order to have back-end API.
 
-### Running Tests
+Once you have your new Firebase project, create a `.env` file at the root of
+the project and insert the following keys and complete with the values from your
+Firebase project (they should be accessible via the `Add Firebase to your web
+app` option in the project's console).
 
-* `ember test`
-* `ember test --server`
+```
+FIREBASE_API_KEY=<YOUR-FIREBASE-API-KEY>
+FIREBASE_AUTH_DOMAIN=<YOUR-FIREBASE-AUTH-DOMAIN>
+FIREBASE_DATABASE_URL=<YOUR-FIREBASE-DB-URL>
+FIREBASE_STORAGE_BUCKET=<YOUR-FIREBASE-BUCKET>
+```
 
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+Once that's all done, you should be able to run the application:
+* `ember s`
+* Open your favorite browser at [http://localhost:4200](http://localhost:4200).
