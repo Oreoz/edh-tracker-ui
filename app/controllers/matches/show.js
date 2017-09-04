@@ -18,13 +18,6 @@ export default Controller.extend({
   },
 
   actions: {
-    async addPlayer() {
-      let player = this.get('playerService').createPlayer();
-      this.get('match.players').pushObject(player);
-
-      await this.get('match').save();
-    },
-
     modifyPlayerLife(player, increment) {
       player.incrementProperty('life', increment);
       run.debounce(this, this._persistPlayerLifeTotals, 1000);
