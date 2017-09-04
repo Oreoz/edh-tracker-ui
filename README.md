@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/Oreoz/edh-tracker-ui.svg?branch=master)](https://travis-ci.org/Oreoz/edh-tracker-ui)
 [![Code Climate](https://codeclimate.com/github/Oreoz/edh-tracker-ui/badges/gpa.svg)](https://codeclimate.com/github/Oreoz/edh-tracker-ui)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+EDH Tracker is a web application that can be used to track life totals in real-time
+for the Magic the Gathering's [EDH/Commander](http://mtgcommander.net) format.
 
 ## Prerequisites
 
