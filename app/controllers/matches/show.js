@@ -6,10 +6,13 @@ import { run } from "@ember/runloop";
 export default Controller.extend({
   store: service(),
   session: service(),
+  router: service(),
   playerService: service('player'),
 
   match: computed.alias('model'),
   uid: computed.alias('session.currentUser.uid'),
+
+  isWorking: false,
 
   _persistPlayerLifeTotals() {
     this.get('match.players').filterBy('hasDirtyAttributes', true).map(player => player.save());
@@ -27,11 +30,17 @@ export default Controller.extend({
     },
 
     async leave() {
+      this.toggleProperty('isWorking');
+
       this.get('match.players')
         .filterBy('uid', this.get('uid'))
         .map(player => this.get('match.players').removeObject(player));
 
       await this.get('match').save();
+
+      this.get('router').transitionTo('matches');
+
+      this.toggleProperty('isWorking');
     }
   }
 });

@@ -1,3 +1,9 @@
+<div class="text-center pt-3">
+  <h3>{{match.name}}</h3>
+</div>
+
+<hr>
+
 {{#each match.players as |player|}}
   <div class="row my-2">
     {{#if (eq uid player.uid)}}
@@ -8,7 +14,10 @@
     {{/if}}
 
     <div class="col-6 text-center {{unless (eq uid player.uid) 'offset-3'}}">
-      {{player.commander}} :: {{player.life}}
+      <h5>
+        <small class="text-muted">{{player.commander}}</small>
+        {{player.life}}
+      </h5>
     </div>
 
     {{#if (eq uid player.uid)}}
@@ -18,16 +27,23 @@
       </div>
     {{/if}}
   </div>
+
+  <hr>
 {{/each}}
 
 <div class="match-action-panel text-center">
   {{#if (eq uid match.creator)}}
-    <button class="btn btn-outline-warning" {{action 'reset'}}>
+    <button class="btn btn-outline-warning form-control col-sm-4 col-md-3 col-lg-2 my-1" {{action 'reset'}}>
       <i class="fa fa-refresh" aria-hidden="true"></i> Reset Match
     </button>
   {{/if}}
 
-  <button class="btn btn-outline-danger" {{action 'leave'}}>
-    <i class="fa fa-times-circle" aria-hidden="true"></i> Leave Match
+  <button class="btn btn-outline-danger form-control col-sm-4 col-md-3 col-lg-2 my-1" disabled={{isWorking}} {{action 'leave'}}>
+    {{#if isWorking}}
+      <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    {{else}}
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
+    {{/if}}
+    Leave Match
   </button>
 </div>
