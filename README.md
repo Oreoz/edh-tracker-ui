@@ -14,8 +14,8 @@ In order to run the application, you'll need [Git](https://git-scm.com/),
 First things first, clone the project and install the dependencies:
 
 * `git clone https://github.com/Oreoz/edh-tracker-ui.git`
-** NPM: `cd edh-tracker && npm install`
-** Yarn: `cd edh-tracker && yarn`
+  * NPM: `cd edh-tracker && npm install`
+  * Yarn: `cd edh-tracker && yarn`
 
 In order to run the application you'll need to create a
 [Firebase](https://firebase.google.com/) project in order to have back-end API.
