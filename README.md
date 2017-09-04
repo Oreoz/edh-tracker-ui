@@ -18,8 +18,6 @@ First things first, clone the project and install the dependencies:
 
 → `git clone https://github.com/Oreoz/edh-tracker-ui.git`
 
-→ `cd edh-tracker && npm install`
-
 → `cd edh-tracker && yarn`
 
 In order to run the application you'll need to create a
