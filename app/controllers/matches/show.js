@@ -12,9 +12,7 @@ export default Controller.extend({
   uid: computed.alias('session.currentUser.uid'),
 
   _persistPlayerLifeTotals() {
-    this.get('match.players')
-      .filterBy('hasDirtyAttributes', true)
-      .map(player => player.save());
+    this.get('match.players').filterBy('hasDirtyAttributes', true).map(player => player.save());
   },
 
   actions: {
@@ -23,9 +21,17 @@ export default Controller.extend({
       run.debounce(this, this._persistPlayerLifeTotals, 1000);
     },
 
-    resetGame() {
-      this.get('match.players').map(p => p.set('life', 40));
+    reset() {
+      this.get('match.players').map(player => player.set('life', 40));
       this.get('match').save();
+    },
+
+    async leave() {
+      this.get('match.players')
+        .filterBy('uid', this.get('uid'))
+        .map(player => this.get('match.players').removeObject(player));
+
+      await this.get('match').save();
     }
   }
 });

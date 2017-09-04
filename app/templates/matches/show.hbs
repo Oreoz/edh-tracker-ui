@@ -20,10 +20,14 @@
   </div>
 {{/each}}
 
-{{#if (eq uid match.creator)}}
-  <div class="admin-panel text-center">
-    <button class="btn btn-outline-warning" {{action 'resetGame'}}>
-      <i class="fa fa-refresh" aria-hidden="true"></i> Reset Game
+<div class="match-action-panel text-center">
+  {{#if (eq uid match.creator)}}
+    <button class="btn btn-outline-warning" {{action 'reset'}}>
+      <i class="fa fa-refresh" aria-hidden="true"></i> Reset Match
     </button>
-  </div>
-{{/if}}
+  {{/if}}
+
+  <button class="btn btn-outline-danger" {{action 'leave'}}>
+    <i class="fa fa-times-circle" aria-hidden="true"></i> Leave Match
+  </button>
+</div>
