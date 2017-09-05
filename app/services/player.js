@@ -10,7 +10,7 @@ export default Service.extend({
 
     let player = this.get('store').createRecord('player', {
       uid: this.get('session.currentUser.uid'),
-      commander: profile.get('defaultCommander')
+      commander: profile.get('displayName')
     });
 
     return player;

@@ -6,7 +6,7 @@
   <div class="form-group">
     <label>Name</label>
     {{input id="match-name" type="text" class="form-control" value=match.name}}
-    <small class="text-muted">Give your match a name so that your friends are able to join!</small>
+    <small class="text-muted">Give your match a recognizable name</small>
   </div>
 
   <div class="form-group">
@@ -14,7 +14,8 @@
     {{#power-select options=sizes selected=match.size onchange=(action (mut match.size)) as |size|}}
       {{size}}
     {{/power-select}}
+    <small><i>Pro Tip: </i></small><small class="text-muted">Make your match big enough</small>
   </div>
 
-  <button type="submit" class="btn btn-primary" {{action 'createMatch'}}>Create Match</button>
+  <button type="submit" class="btn btn-primary pull-right" {{action 'createMatch'}}>Create Match</button>
 </form>

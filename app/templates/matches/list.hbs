@@ -1,9 +1,19 @@
 <div class="header-container pt-3">
-  <h3>Matches</h3>
+  <h3>Live Matches</h3>
 </div>
 
-<div class="row">
-  {{#each matches as |match|}}
-    {{match-card class="col-md-6 my-2" match=match}}
-  {{/each}}
-</div>
+{{#if matches}}
+  <div class="row">
+    {{#each matches as |match|}}
+      {{match-card class="col-md-6 my-2" match=match}}
+    {{/each}}
+  </div>
+{{else}}
+  <div class="center-text">
+    There are no live matches at the moment <i class="fa fa-frown-o" aria-hidden="true"></i>, but you can create one
+    {{#link-to 'matches.new'}}
+      right here
+    {{/link-to}}
+    and start playing with your friends! <i class="fa fa-smile-o" aria-hidden="true"></i>
+  </div>
+{{/if}}

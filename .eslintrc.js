@@ -9,7 +9,8 @@ module.exports = {
     browser: true
   },
   rules: {
-    'comma-dangle': [ 2, 'never' ],
-    'semi': [ 2, 'always' ]
+    'comma-dangle': [ 'error', 'never' ],
+    'semi': [ 'error', 'always' ],
+    'max-len': [ 'error', 100 ]
   }
 };

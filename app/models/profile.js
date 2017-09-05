@@ -4,5 +4,5 @@ const { Model, attr } = DS;
 
 export default Model.extend({
   uid: attr({ defaultValue: null }),
-  defaultCommander: attr({ defaultValue: 'Zada, Hedron Grinder' })
+  displayName: attr({ defaultValue: 'Zada, Hedron Grinder' })
 });

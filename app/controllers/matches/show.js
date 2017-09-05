@@ -37,10 +37,14 @@ export default Controller.extend({
         .map(player => this.get('match.players').removeObject(player));
 
       await this.get('match').save();
-
       this.get('router').transitionTo('matches');
 
       this.toggleProperty('isWorking');
+    },
+
+    async destroy() {
+      await this.get('match').destroyRecord();
+      this.get('router').transitionTo('matches');
     }
   }
 });
