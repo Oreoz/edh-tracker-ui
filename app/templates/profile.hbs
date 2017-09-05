@@ -2,6 +2,13 @@
   <h3>Profile</h3>
 </div>
 
+{{#if displaySucessMessage}}
+  <div class="alert alert-success">
+    <i class="fa fa-check" aria-hidden="true"></i>
+    Your profile has been saved!
+  </div>
+{{/if}}
+
 <form>
   <div class="form-group">
     <label>Display Name</label>
@@ -12,18 +19,8 @@
     </small>
   </div>
 
-  <div class="">
-    {{#if displaySucessMessage}}
-      <span class="mx-2 profile-save-success">
-        <i class="fa fa-check" aria-hidden="true"></i>
-        Your profile has been saved!
-      </span>
-    {{/if}}
-
-    <button type="submit" class="btn btn-primary pull-right" disabled={{disableSave}} {{action 'save'}}>
-      <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
-    </button>
-
-  </div>
+  <button type="submit" class="btn btn-primary pull-right" disabled={{disableSave}} {{action 'save'}}>
+    <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+  </button>
 
 </form>
