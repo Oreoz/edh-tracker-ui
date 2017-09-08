@@ -9,14 +9,13 @@ export default Controller.extend({
       await this.get('session').open('firebase', { provider: provider });
 
       // When the user signs in -- we try and fetch the user profile
-      let profile = await this.get('store').query('profile', { limitToFirst: 1 });
-
-      // If there are no user profile -- we create one
-      if (!profile.get('firstObject.id')) {
-        let uid = this.get('session.currentUser.uid');
-        let newUserProfile = this.get('store').createRecord('profile', { uid: uid });
-        newUserProfile.save();
-      }
+      let uid = this.get('session.currentUser.uid');
+      this.get('store').findRecord('profile', uid).then(() => {
+        // Do nothing, for now...
+      }, async () => {
+        let profile = this.get('store').createRecord('profile', { id: uid });
+        await profile.save().catch(() => {});
+      });
     },
 
     signOut() {

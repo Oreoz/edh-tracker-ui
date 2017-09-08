@@ -7,10 +7,10 @@ export default Route.extend({
   async beforeModel() {
     await this.get('session').fetch().catch(() => {});
 
-    let uid = this.get('session.currentUser.uid');
-
-    if (uid) {
-      await this.get('store').query('profile', { uid: uid });
+    if (this.get('session.currentUser.uid')) {
+      await this.get('store')
+        .findRecord('profile', this.get('session.currentUser.uid'))
+        .catch(() => {});
     }
   }
 });
