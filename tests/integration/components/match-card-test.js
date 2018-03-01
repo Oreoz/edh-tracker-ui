@@ -14,12 +14,11 @@ moduleForComponent('match-card', 'Integration | Component | match card', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(4);
+  assert.expect(3);
 
   this.render(hbs`{{match-card}}`);
 
-  assert.equal(this.$('.card').length, 1);
-  assert.equal(this.$('.card-body').length, 1);
-  assert.equal(this.$('.card-title').length, 1);
+  assert.equal(this.$('.match-card').length, 1);
+  assert.equal(this.$('.match-title').length, 1);
   assert.equal(this.$('.btn-join-match').length, 1);
 });
