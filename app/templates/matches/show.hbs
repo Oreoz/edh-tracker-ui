@@ -7,13 +7,6 @@
 <div class="player-container">
   {{#each match.players as |player|}}
     <div class="player-card text-center">
-      {{#if (eq uid player.uid)}}
-        <div class="left-pane">
-          <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -1}}>1</button>
-          <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -5}}>5</button>
-        </div>
-      {{/if}}
-
       <div class="center-pane">
         <h5 class="user-information">
           <small class="text-muted">{{player.commander}}</small>
@@ -22,18 +15,20 @@
           {{player.life}}
         </div>
       </div>
-
-      {{#if (eq uid player.uid)}}
-        <div class="right-pane">
-          <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 1}}>1</button>
-          <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 5}}>5</button>
-        </div>
-      {{/if}}
     </div>
-
-    <hr>
   {{/each}}
 </div>
+
+{{#with (find-by 'uid' uid match.players) as |player|}}
+  <div class="player-action-panel text-center">
+    <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -1}}>1</button>
+    <button class="btn btn-outline-danger" {{action 'modifyPlayerLife' player -5}}>5</button>
+    <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 1}}>1</button>
+    <button class="btn btn-outline-success" {{action 'modifyPlayerLife' player 5}}>5</button>
+  </div>
+{{/with}}
+
+<hr>
 
 <div class="match-action-panel text-center">
   {{#if (eq uid match.creator)}}
