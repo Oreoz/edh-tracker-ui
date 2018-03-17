@@ -3,17 +3,22 @@ import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 
 export default Component.extend({
-  session: service(),
   router: service(),
   store: service(),
   playerService: service('player'),
 
+  classNames: 'match-card p-2',
+  classNameBindings: ['state'],
+
+  state: computed('currentUserIsInMatch', function() {
+    return this.get('currentUserIsInMatch') ? 'match-card--active' : 'match-card--default';
+  }),
+
   match: null,
 
   players: computed.alias('match.players'),
-  uid: computed.alias('session.currentUser.uid'),
 
-  currentUserIsInMatch: computed('uid', 'players.[]', function () {
+  currentUserIsInMatch: computed('uid', 'players.@each.uid', function () {
     if (this.get('players')) {
       return this.get('players').mapBy('uid').any(uid => uid === this.get('uid'));
     }
@@ -21,7 +26,7 @@ export default Component.extend({
   }),
 
   actions: {
-    async joinMatch() {
+    async join() {
       let player = this.get('playerService').createPlayer();
       this.get('players').pushObject(player);
 

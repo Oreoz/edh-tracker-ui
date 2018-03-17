@@ -10,7 +10,7 @@ export default Model.extend({
 
   players: hasMany('player'),
 
-  isFull: computed('players.[]', function () {
+  full: computed('players.[]', function () {
     return this.get('players.length') >= this.get('size');
   }),
 

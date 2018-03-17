@@ -3,9 +3,9 @@
 </div>
 
 {{#if matches}}
-  <div class="row">
+  <div class="match-container">
     {{#each matches as |match|}}
-      {{match-card class="col-md-6 my-2" match=match}}
+      {{match-card match=match uid=uid}}
     {{/each}}
   </div>
 {{else}}
