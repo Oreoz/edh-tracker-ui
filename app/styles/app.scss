@@ -56,13 +56,10 @@ body, button {
   grid-column-gap: 0.5rem;
 }
 
-$player-card-color: #BFFCD9;
-
 .player-container {
   display: grid;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-
   grid-template-columns: 1fr 1fr;
 
   @include for-phone-only {
@@ -70,7 +67,26 @@ $player-card-color: #BFFCD9;
   }
 }
 
+$color-red: #FC8888;
+$color-green: #BFFCD9;
+$color-gray: #E7E7E7;
+
 .player-card {
-  border-left: 0.5rem solid darken($player-card-color, 20);
-  background-color: $player-card-color;
+  transition: all 0.66s ease;
+  transition-property: background-color, border;
+
+  &--default {
+    border-left: 0.5rem solid darken($color-gray, 20);
+    background-color: $color-gray;
+  }
+
+  &--danger {
+    border-left: 0.5rem solid darken($color-red, 20);
+    background-color: $color-red;
+  }
+
+  &--success {
+    border-left: 0.5rem solid darken($color-green, 20);
+    background-color: $color-green;
+  }
 }
